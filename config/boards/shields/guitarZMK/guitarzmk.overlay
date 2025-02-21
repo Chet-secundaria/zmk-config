@@ -1,0 +1,33 @@
+/ {
+    chosen {
+        zmk,matrix = &keyboard_matrix;
+    };
+};
+
+&pinctrl {
+    gpio_keys: gpio_keys {
+        nordic,pins = <
+            GPIO0 17  // Tecla 1
+            GPIO0 20  // Tecla 2
+            GPIO0 22  // Tecla 3
+            GPIO0 24  // Tecla 4
+            GPIO1 00  // Tecla 5
+            GPIO1 04  // Tecla 6
+            GPIO0 11  // Tecla 7
+            GPIO1 11  // Tecla 8
+            GPIO0 10  // Tecla 9
+        >;
+    };
+};
+
+&keyboard_matrix {
+    col-gpios = <&gpio0 17 GPIO_ACTIVE_HIGH>,
+                <&gpio0 20 GPIO_ACTIVE_HIGH>,
+                <&gpio0 22 GPIO_ACTIVE_HIGH>,
+                <&gpio0 24 GPIO_ACTIVE_HIGH>,
+                <&gpio1 00 GPIO_ACTIVE_HIGH>,
+                <&gpio1 04 GPIO_ACTIVE_HIGH>,
+                <&gpio0 11 GPIO_ACTIVE_HIGH>,
+                <&gpio1 11 GPIO_ACTIVE_HIGH>,
+                <&gpio0 10 GPIO_ACTIVE_HIGH>;
+};
