@@ -6,15 +6,15 @@
         compatible = "zmk,keymap";
         default_layer {
             bindings = <
-                &kp NUM_1    // Tecla 1 (P0.17)
-                &kp NUM_2    // Tecla 2 (P0.20)
-                &kp NUM_3    // Tecla 3 (P0.22)
-                &kp NUM_4    // Tecla 4 (P0.24)
-                &kp NUM_5    // Tecla 5 (P1.00)
-                &kp NUM_6    // Tecla 6 (P1.04)
-                &kp NUM_7    // Tecla 7 (P0.11)
-                &kp NUM_8    // Tecla 8 (P1.11)
-                &kp NUM_9    // Tecla 9 (P0.10)
+                &kp NUM_1    // Col 1
+                &kp NUM_2    // Col 2
+                &kp NUM_3    // Col 3
+                &kp NUM_4    // Col 4
+                &kp NUM_5    // Col 5
+                &kp NUM_6    // Col 6
+                &kp NUM_7    // Col 7
+                &kp NUM_8    // Col 8
+                &kp NUM_9    // Col 9
             >;
         };
     };
