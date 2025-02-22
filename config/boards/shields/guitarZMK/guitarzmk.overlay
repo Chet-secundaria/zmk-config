@@ -1,17 +1,27 @@
 / {
+    chosen {
+        zmk,matrix = &keyboard_matrix;
+    };
+
     kscan0: kscan0 {
-        compatible = "zmk,kscan-gpio-direct";
+        compatible = "zmk,kscan-gpio-matrix";
+        diode-direction = "col2row"; // Aunque no hay diodos, se usa col2row o row2col
         wakeup-source;
 
-        input-gpios
-            = <&gpio0 17 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>  // Tecla 1
-            , <&gpio0 20 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>  // Tecla 2
-            , <&gpio0 22 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>  // Tecla 3
-            , <&gpio0 24 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>  // Tecla 4
-            , <&gpio1 00 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>  // Tecla 5
-            , <&gpio1 04 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>  // Tecla 6
-            , <&gpio0 11 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>  // Tecla 7
-            , <&gpio1 11 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>  // Tecla 8
-            , <&gpio0 10 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>; // Tecla 9
+        // 1 fila
+        row-gpios = <&gpio0 17 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>; // Fila 1 (usando un pin)
+
+        // 9 columnas
+        col-gpios
+            = <&gpio0 20 GPIO_ACTIVE_HIGH>  // Columna 1
+            , <&gpio0 22 GPIO_ACTIVE_HIGH>  // Columna 2
+            , <&gpio0 24 GPIO_ACTIVE_HIGH>  // Columna 3
+            , <&gpio1 00 GPIO_ACTIVE_HIGH>  // Columna 4
+            , <&gpio1 04 GPIO_ACTIVE_HIGH>  // Columna 5
+            , <&gpio0 11 GPIO_ACTIVE_HIGH>  // Columna 6
+            , <&gpio1 11 GPIO_ACTIVE_HIGH>  // Columna 7
+            , <&gpio0 10 GPIO_ACTIVE_HIGH>  // Columna 8
+            , <&gpio0 05 GPIO_ACTIVE_HIGH>; // Columna 9 (ejemplo, ajusta el pin)
+            ;
     };
 };
